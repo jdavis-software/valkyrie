@@ -1,0 +1,19 @@
+{
+  "requested_url": "https://power-atlas.sarvesh-kapre.chatgpt.site/",
+  "captured_at": "2026-09-07T05:16:35.929691+00:00",
+  "method": "Playwright with system Chromium; fresh context",
+  "computer_tool_discovery": "No Computer namespace exposed; plugin search returned no Computer or Browser result in this session",
+  "viewport": {"width": 1440, "height": 900},
+  "browser_version": "144.0.7559.96",
+  "navigation_error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at https://power-atlas.sarvesh-kapre.chatgpt.site/\nCall log:\n  - navigating to \"https://power-atlas.sarvesh-kapre.chatgpt.site/\", waiting until \"domcontentloaded\"\n",
+  "final_url": "chrome-error://chromewebdata/",
+  "title": "power-atlas.sarvesh-kapre.chatgpt.site",
+  "body_text": "power-atlas.sarvesh-kapre.chatgpt.site is blocked\n\nYour organization doesn’t allow you to view this site",
+  "responses": [],
+  "requestfailed_events": [],
+  "console": [],
+  "controls": [],
+  "scripts": [],
+  "canvases": 0,
+  "interpretation": "Browser-environment access restriction, not an application failure. No reference interaction, rendering, runtime dependency, network endpoint or dataset was verified. Empty event arrays are observed logs, not evidence of successful navigation."
+}
