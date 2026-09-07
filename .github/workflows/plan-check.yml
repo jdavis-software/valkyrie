@@ -1,0 +1,33 @@
+name: Validate implementation plan
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - 'scripts/check-plan.mjs'
+      - '.github/workflows/plan-check.yml'
+  pull_request:
+    paths:
+      - '**/*.md'
+      - 'scripts/check-plan.mjs'
+      - '.github/workflows/plan-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 tag verified during planning
+        with:
+          persist-credentials: false
+      - name: Verify available Node runtime
+        run: |
+          node --version
+          node -e "if (Number(process.versions.node.split('.')[0]) < 18) process.exit(1)"
+      - name: Validate plan and checker self-tests
+        run: node scripts/check-plan.mjs --self-test
