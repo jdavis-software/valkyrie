@@ -2,69 +2,75 @@
 
 **Explore the infrastructure behind energy, compute, and connectivity.**
 
-Valkyrie is an independent, map-first portfolio project by Jordan Davis. The planned experience combines a global power-generation overview with deeper regional infrastructure exploration, searchable facilities, evidence-backed details and shareable guided stories.
+Valkyrie is Jordan Davis's independent portfolio project: an original map/globe/orbit experience for exploring source-backed physical and digital infrastructure.
 
-> **Status: implementation plan ready; application not built yet.** This repository contains a detailed specification, 96 dependency-ordered task cards, 12 GitHub epic issues, an ASTRA goal handoff and a working plan-validation workflow. It does not yet contain a running application, imported production data, runtime benchmarks or a deployed demo.
+> **Planning package published; reference audit unfinished; application not built.** The repository contains 96 baseline task cards plus 48 expanded task cards, source research, implementation contracts and structural validation tooling. No production datasets, runtime benchmarks, application screenshots or live demo are claimed yet.
 
 ## Start here
 
 | Entry point | Purpose |
 |---|---|
-| [GOAL.md](GOAL.md) | Complete implementation prompt for the coding agent |
-| [AGENTS.md](AGENTS.md) | Operating rules, quality bar, progress recovery and boundaries |
-| [Roadmap](docs/ROADMAP.md) | 12 epics and 96 tasks with dependencies and acceptance criteria |
-| [GitHub epic index](docs/execution/ISSUES.md) | Issues #1–#12, each with eight implementation checklist items |
-| [Execution status](docs/execution/STATUS.md) | Current state and exact next task |
-| [Plan-validation evidence](docs/qa/plan-validation.md) | Actual CI evidence; distinct from future application QA |
+| [GOAL.md](GOAL.md) | Full ASTRA implementation assignment and execution rules |
+| [AGENTS.md](AGENTS.md) | Agent boundaries, evidence standards and progress recovery |
+| [Baseline roadmap](docs/ROADMAP.md) | 96 VLK tasks for the first working release |
+| [Full portfolio roadmap](docs/expanded/README.md) | 48 EXP tasks extending the baseline to the six-domain target |
+| [Implementation contracts](docs/expanded/IMPLEMENTATION.md) | Modules, schemas, data delivery, orbit math, performance and test contracts |
+| [Reference audit](docs/expanded/REFERENCE_AUDIT.md) | 32 browser scenarios and exhaustive visible source-panel capture requirements |
+| [Research findings](docs/expanded/RESEARCH.md) | Primary-source findings and what remains unknown about Power Atlas |
+| [Candidate source register](docs/expanded/SOURCE_REGISTER.json) | Independently researched inputs; not a recovered reference source list |
+| [Execution status](docs/execution/STATUS.md) | Actual progress, blockers and next action |
+| [Baseline GitHub epics](docs/execution/ISSUES.md) | Original issues #1–#12 linked to their canonical cards |
 
-### Launch instruction
+## Full portfolio target
 
-Open this repository in the coding environment and use its goal workflow with:
+Map and Globe views for power, grid, compute/AI, projects and connectivity, plus a separate calculated Orbit mode for satellites. Search, filters, source-aware inspectors, compatible comparisons, dated project/event context, saved/shareable views and six guided stories are planned. The initial NoVA/DFW deep dives expand to documented representative areas in Europe, China and India. Broad source coverage is not the same as complete worldwide topology.
 
-```text
-Implement Valkyrie v1 end to end. Read AGENTS.md and GOAL.md first,
-recover docs/execution/STATUS.md, and execute all 96 required tasks in
-docs/ROADMAP.md in dependency order. Build and verify the actual app;
-do not stop at another plan or a mock dashboard. Follow the data,
-visual, testing, deployment and portfolio release gates. Record
-progress and blockers honestly. Start with VLK-001 if no implementation
-has begun.
-```
+The baseline v1 is the first usable release. The expanded addendum promotes globe switching, satellites, cable/IX/regulatory modeling, broader ground coverage, large-catalog delivery and bounded improvement cycles into the full goal. Unrelated SaaS, billing, private data and runtime AI remain outside scope.
 
-## Planned v1
+The scale target is **200,000 distinct source-backed catalog entities**, not a current result or a promise that all are facilities of the same granularity. Counts must distinguish stations, units, grid features, campuses and other entity kinds; geometry fragments, aliases and repeated provider observations do not inflate totals. Synthetic stress-test records never enter production data or coverage claims.
 
-An original dark atlas interface; real historical global power-plant data; Northern Virginia and Dallas–Fort Worth grid/compute deep dives; a small source-backed project/connectivity collection; keyboard search, filters, results and a source-aware inspector; compatible asset comparison; three guided stories; shareable URLs and local saved views; responsive and no-WebGL fallbacks; reproducible static delivery; and an honest portfolio case study.
+## Architecture direction
 
-Global inventory, regional extracts and editorial samples have visibly different coverage. Historical data is never called live. Nearby infrastructure is never described as verified power supply. Record counts come from validated assets, not geometry fragments or fictional demonstration data.
+React + TypeScript + Vite, MapLibre GL JS ground map/globe, a lazy isolated orbital scene, worker queries, typed source/claim/relationship contracts and versioned static data. Node/TypeScript ingestion prepares approved inputs centrally; the app does not call upstream data providers per visitor. Dense layers use tested partition/tile delivery as needed. Exact package versions are selected and tested during implementation.
 
-## Specification shelf
+No account, paid map API, application backend, database service, Kubernetes or runtime AI dependency is required. This is Valkyrie's proposed architecture, not a finding about Power Atlas's internals.
 
-[Product](docs/PRODUCT.md) · [Architecture](docs/ARCHITECTURE.md) · [Experience](docs/EXPERIENCE.md) · [Data sources](docs/DATA_SOURCES.md) · [Data contracts](docs/DATA_CONTRACTS.md) · [Reference evidence](docs/REFERENCES.md) · [Decisions](docs/DECISIONS.md) · [Verification](docs/VERIFICATION.md) · [Deployment](docs/DEPLOYMENT.md) · [Portfolio](docs/PORTFOLIO.md) · [Future scope](docs/FUTURE.md).
+## Evidence and source integrity
 
-## Architectural direction
+The original site's rendered source drawer has not been captured. Candidate providers in the research register must not be labeled confirmed Power Atlas inputs without real observation. A failed browser attempt or an open URL does not complete a reference audit.
 
-React, TypeScript, Vite and MapLibre GL JS; a build-time TypeScript ingestion pipeline; versioned static data artifacts; worker-backed search; Vitest and Playwright; GitHub Actions and a GitHub Pages-compatible deployment. Exact compatible package versions are pinned during implementation, not guessed in the plan.
+Every public asset and factual story needs traceable evidence. Historical inventories stay historical; unknown values stay unknown; geographic proximity is not verified supply; large-load aggregates are not guessed facilities; cable routes require actual rights and geometry evidence; propagated satellite positions are calculations from dated elements, not live telemetry.
 
-No accounts, paid APIs, application backend, database service, Kubernetes or runtime AI dependency is required for v1. This is a deliberate portfolio design choice, not a claim about the reference application's stack.
+## Validate the planning structure
 
-## Validate the plan now
-
-With Node 18 or later, no application dependency installation is needed:
+With Node 18 or later, without application dependencies:
 
 ```bash
 node scripts/check-plan.mjs --self-test
+node scripts/check-expanded-plan.mjs --self-test
 ```
 
-The checker validates the 96-task graph, status vocabulary, required task sections and relative document/file links. It tests its own failure detection and runs through [GitHub Actions](https://github.com/jdavis-software/valkyrie/actions/workflows/plan-check.yml). It does **not** certify the future application's correctness, external URLs or data rights.
+The checks validate baseline/expanded task coverage, statuses, dependencies, cycles, required card sections, relative links and declared source evidence states. They do not certify source rights, external URLs, a completed browser audit, application correctness or deployment. Application commands and a lockfile will be added by implementation tasks.
 
-Application install/dev/build commands will be added by the foundation tasks. There is no app package lockfile yet.
+## Launch
 
-## Inspiration and data reuse
+```text
+Implement Valkyrie's full portfolio target. Read AGENTS.md and GOAL.md,
+then docs/ROADMAP.md and docs/expanded/README.md. Recover repository state
+and execute all 96 VLK plus 48 EXP tasks in dependency order. Complete
+the real reference/source-panel audit; never invent observed features.
+Build and verify the actual app, maintain evidence and task statuses,
+and report any real data, browser, performance or deployment blockers.
+```
 
-- [Power Atlas reference experience](https://power-atlas.sarvesh-kapre.chatgpt.site/)
-- [Original X link supplied by Jordan](https://x.com/_cyberhusky/status/2076018638658896085)
-- [OpenInfraMap public source](https://github.com/openinframap/openinframap)
+## Baseline specification shelf
 
-Valkyrie will use original code, branding and copy inspired by the interaction pattern—not Power Atlas's bundles, assets or dataset. The reference's internal stack and original repository have not been verified.
+[Product](docs/PRODUCT.md) · [Architecture](docs/ARCHITECTURE.md) · [Experience](docs/EXPERIENCE.md) · [Data sources](docs/DATA_SOURCES.md) · [Data contracts](docs/DATA_CONTRACTS.md) · [References](docs/REFERENCES.md) · [Decisions](docs/DECISIONS.md) · [Verification](docs/VERIFICATION.md) · [Deployment](docs/DEPLOYMENT.md) · [Portfolio](docs/PORTFOLIO.md) · [Earlier future-scope list](docs/FUTURE.md).
 
-Each upstream dataset retains its own attribution, license, retrieval/source dates and limitations. Public visibility does not automatically permit redistribution. Original-code licensing and third-party data licensing remain separate; review the source registry before importing or publishing data.
+The [expanded scope](docs/expanded/README.md) overrides only its expressly promoted items; the other baseline engineering and data guarantees remain in force.
+
+## Inspiration and reuse
+
+[Power Atlas](https://power-atlas.sarvesh-kapre.chatgpt.site/) is the interaction reference. [Jordan's original X link](https://x.com/_cyberhusky/status/2076018638658896085) preserves discovery context. [OpenInfraMap](https://github.com/openinframap/openinframap) is a separate implementation reference, not an identified Power Atlas dependency.
+
+Valkyrie will use original code, branding, copy and stories. Do not import the reference's bundles, imagery or dataset into the product without permission. Upstream libraries and datasets retain their own licenses, attribution and dated coverage. Code licensing and third-party data rights are separate decisions.

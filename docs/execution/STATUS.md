@@ -1,42 +1,59 @@
 # Execution status
 
-Planning baseline: 2026-09-06, America/Los_Angeles. GitHub timestamps may show 2026-09-07 UTC for the same local evening.
+Planning revision: 2026-09-07 UTC / 2026-09-06 Pacific. This records planning work, not completed application tasks.
 
 ## Current state
 
 | Area | Actual status |
 |---|---|
-| Repository | `jdavis-software/valkyrie`, public; planning committed on `main` |
-| Planning pack | Product, architecture, experience, data, verification, deployment and portfolio specifications present |
-| Required task cards | 96 total across 12 epics; 0 implemented/done; all `todo` |
-| GitHub issues | 12 open epic issues, each containing eight unchecked task items |
-| Agent handoff | `AGENTS.md` and `GOAL.md` present |
-| Planning validation | Zero-dependency checker and GitHub Actions workflow present; first actual CI run passed |
+| Repository | `jdavis-software/valkyrie`, public; authorized planning updates on `main` |
+| Baseline task cards | 96 VLK tasks across 12 epics; all todo; no implementation claimed |
+| Expanded task cards | 48 EXP tasks across 8 epics; EXP-001 blocked by browser access, other EXP tasks todo |
+| Full target | Baseline first release plus explicitly promoted six-domain/globe/orbit/scale expansion |
+| Reference click-through | Not completed; in-app URL is visible but callable tab controls are not exposed here |
+| Actual reference source panel | Owner-reported; not extracted or verified by this session |
+| Isolated Chromium | Prior and current attempts blocked before application loading; not the owner's in-app tab |
+| Provider research | Twelve independent candidates recorded with explicit unverified reference relationship and unapproved import status |
+| Source/data imports | None; acquisition, rights and real-data cohort gates still required |
 | Application implementation | Not started |
-| Production datasets | None imported |
-| Application/runtime/browser benchmarks | Not run; no app exists yet |
+| Application benchmarks and QA | Not run; planning validation is not runtime validation |
 | Public application deployment | Not created or verified |
 | Portfolio screenshots/video | Not created |
+| GitHub baseline issues | Existing 12 epic issues; checkboxes remain unchecked |
+| Expanded issue synchronization | Canonical new task cards govern; see repository issue list and the expanded issue index after synchronization |
 
-See [planning-validation evidence](../qa/plan-validation.md) and the [issue index](ISSUES.md). A green planning check proves planning structure, not implementation, source-acquisition success or runtime quality.
+## Authoritative planning entry points
+
+Read [GOAL](../../GOAL.md), [baseline roadmap](../ROADMAP.md), [full target](../expanded/README.md), [implementation contracts](../expanded/IMPLEMENTATION.md), [research memo](../expanded/RESEARCH.md) and [reference protocol](../expanded/REFERENCE_AUDIT.md).
+
+The prior 96-task boundary is a first release, not the entire broader goal. The expanded addendum overrides specifically promoted deferrals while preserving data integrity, original branding, no paid runtime dependency and no changes to unrelated projects.
 
 ## Exact next action
 
-Read `AGENTS.md` and `GOAL.md`, inspect actual Git state, and begin **VLK-001** in [E00](../roadmap/E00-readiness.md). The agent may verify/reuse the existing checker in VLK-002 instead of unnecessarily rewriting it. Keep task statuses and GitHub checklists synchronized only after corresponding implementation/verification evidence exists.
+Begin VLK-001 after inspecting actual branch/worktree/commits. Run both planning validators. Recover actual browser capability and complete EXP-001–005 alongside VLK-003 when a rendered session is available; then finish the feature/source-to-task reconciliation in EXP-006. No blocked navigation, extracted page text, source-research list or desired-feature prompt can pass the real audit.
 
-## Recovery update format
+While browser access remains unavailable, keep its dependent gates unfinished and continue genuinely independent source/stack/planning work. Do not repeatedly retry an unchanged administrative restriction, bypass policies, or ask the owner to reopen a tab already known to be open.
+
+## Verification commands
+
+```bash
+node scripts/check-plan.mjs --self-test
+node scripts/check-expanded-plan.mjs --self-test
+```
+
+The expanded checker self-tests were run locally with Node v22.16.0; they passed on in-memory fixtures. Full repository/CI results must be recorded from the actual workflow run, not inferred from that local self-test. Historical baseline planning evidence remains in [plan-validation](../qa/plan-validation.md).
+
+## Recovery format
 
 ```text
 Date / branch / commit:
-Current milestone and active task:
-Completed task IDs with evidence:
-Checks run and actual results:
-Data/app release versions:
-Blocked tasks and exact causes:
-Safe independent work available:
+Baseline milestone and expanded milestone:
+Active task and actually completed IDs:
+Reference audit and source-disclosure status:
+Commands, results, evidence paths:
+Real dataset versions, counts and coverage:
+Blocked tasks, exact cause, independent ready work:
 Next task and reproduction command:
 ```
 
-## Standing constraints
-
-Standalone keyless static portfolio app. No changes to other Jordan projects or global tooling. No fake public data or hidden source uncertainty. No paid service/credential requirement for v1. Do not announce deployment, measurements or screenshots until they exist and have been verified.
+No task is complete merely because this plan, checker or issue exists. Every status change needs its own evidence. Do not announce a real-source import, passed app test, live URL or screenshot that has not actually been produced and verified.

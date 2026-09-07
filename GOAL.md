@@ -1,71 +1,78 @@
-# ASTRA implementation goal — Valkyrie v1
+# ASTRA implementation goal — Valkyrie full portfolio target
 
-Paste the following instruction into the coding environment's `/goal` workflow, or use it as an ordinary implementation prompt when that workflow is not available. This document does not assume any particular model runtime, duration, or autonomous-tool capability.
+Planning revision: 2026-09-07 UTC. **The specification is written; the rendered Power Atlas audit is unfinished and the application has not been built.** Use this as a coding-environment goal, not a claim that autonomous work is already running.
 
-**Reference-audit correction, 2026-09-07 UTC:** the rendered Power Atlas walkthrough has not been completed. Read [the fresh access evidence, supplied Grok brief and scope comparison](docs/qa/POWER_ATLAS_REINSPECTION.md). The current bounded v1 is narrower than that brief. The reference audit may not be marked complete merely because browsing is blocked; follow the updated VLK-003 gate. No future module has been silently promoted into the 96-task scope.
+## Mission
 
----
+Implement Valkyrie in `jdavis-software/valkyrie` as Jordan Davis's original, polished, map-first portfolio application for the physical infrastructure behind energy, compute and connectivity. This is a fun but technically credible public project, not an enterprise platform or authoritative utility operating system.
 
-Implement **Valkyrie v1** in `jdavis-software/valkyrie`: an original, exceptionally polished, map-first portfolio application for exploring energy, compute, and connectivity infrastructure.
+The full target now includes **96 baseline VLK tasks plus 48 expanded EXP tasks**. The original 96-task v1 is the first release, not the entire global/globe/orbit ambition. Read [the full-target scope and precedence rules](docs/expanded/README.md). Do not quietly stop after VLK-096 or silently turn required expanded features into optional ideas. Conversely, do not interpret the broad vision as authorization for unlimited paid services, private data, SaaS or endless work.
 
-The owner is Jordan Davis. This is a fun but technically credible public portfolio project, not a commercial infrastructure platform. The planning documents are written, but reference discovery and scope reconciliation remain readiness work. Implement, test, refine, document, and prepare the actual application for demonstration after satisfying the required gates—not another speculative roadmap represented as a verified reconstruction.
+## Recover state before changing anything
 
-## Start by recovering the current state
+Read in this order: `AGENTS.md`; `docs/execution/STATUS.md` and `LOG.md`; `docs/ROADMAP.md`; `docs/expanded/README.md`; the baseline PRODUCT/ARCHITECTURE/EXPERIENCE; expanded IMPLEMENTATION/RESEARCH/REFERENCE_AUDIT; then DATA_SOURCES/DATA_CONTRACTS and the task-specific epic.
 
-Read `AGENTS.md`, `docs/execution/STATUS.md`, `docs/execution/LOG.md`, `docs/ROADMAP.md`, `docs/qa/POWER_ATLAS_REINSPECTION.md`, and all eleven core specifications linked from the roadmap. Inspect the actual working tree and existing implementation. Treat task-card status as something to verify, not blind proof that code works. Identify the first ready unfinished `VLK-*` task and execute it.
+Inspect actual branch, worktree, commits, source files, lockfile and issues. Task status is a declaration to verify, not blind proof of correctness. Preserve unrelated work. Work only in Valkyrie and its explicitly assigned worktree. Do not change DriftGate, AvatarOps, global Codex configuration, credentials or machine-wide development tooling.
 
-If the repository is still planning-only, start at VLK-001. Do not assume `pnpm dev`, dependencies, datasets, screenshots, CI, or a deployed site already exist. Establish them through the foundation tasks. Preserve existing work and avoid unrelated repositories or global development configuration.
+If planning-only, begin VLK-001. Run both zero-dependency planning validators. Reuse existing working tooling rather than creating a second checker, second app or new plan. Application install/dev/build commands and datasets do not exist merely because the architecture names them.
 
-## What the finished application must do
+## Reference and source discovery are real gates
 
-Deliver a full-screen, original dark atlas interface with a compelling world overview, a regional deep-dive experience, smooth but restrained camera motion, meaningful layer controls, command-palette search, filters, an accessible result list, and a source-aware facility inspector.
+Reference: https://power-atlas.sarvesh-kapre.chatgpt.site/
+Original user-supplied X context: https://x.com/_cyberhusky/status/2076018638658896085
 
-The current baseline includes a real historical global power-plant inventory; two documented regional packs for grid and data-center exploration; small evidence-backed project and connectivity collections; comparable facility metrics; labeled geographic context; three guided stories; reproducible saved/shareable views; and a clear methodology/data-health surface. Global and regional coverage must be visibly different. Do not describe a regional sample as worldwide coverage or an old inventory as a live feed. This is not equivalent to the broader globe/orbital/global-connectivity/continuous-improvement ambition in the supplied brief.
+The owner reports a data-source panel in the working site. It has not been extracted in this conversation. Public text shows broad navigation labels and a displayed count, not a verified source inventory, technology stack or complete functional specification. Prior administrative failures came from isolated Chromium, not the owner's in-app tab. See `docs/qa/POWER_ATLAS_REINSPECTION.md` and `docs/expanded/RESEARCH.md`.
 
-Use https://power-atlas.sarvesh-kapre.chatgpt.site/ as the public interaction reference, not as proof of a particular technical stack. The original X link is https://x.com/_cyberhusky/status/2076018638658896085. Complete the public-browser walkthrough and reference-to-roadmap comparison specified by VLK-003. Record observed states, actual screenshots, reproduction steps, limitations and scope differences in the reference ledger. Do not copy its branding, source code, text, dataset, or unverified object count into Valkyrie. Public-bundle inspection for evidence is distinct from reusing the reference's code.
+Complete VLK-003 and EXP-001–006 using an actual rendered public browser session. Follow the 32 scenarios in `docs/expanded/REFERENCE_AUDIT.md`, including all visible source rows/tabs/pages, representative asset inspectors, search, layer/region behavior, mobile and accessible navigation. Record screenshots, actions, after-states, exact source URLs, uncertainty and a feature-to-task matrix. Inspect publicly delivered runtime/network evidence when available; exact private backend recovery is not required.
 
-If the reference is inaccessible, record the exact blocker, leave VLK-003 unfinished and continue only independent ready work. Do not pass M0 or claim a completed reference audit using page-text extraction or a supplied prompt. An explicit owner-approved waiver may replace inspection through a documented scope amendment; it is not evidence that inspection happened. Reconcile desired expanded scope explicitly rather than silently dropping it or silently adding every FUTURE module.
+Do not mark a failed navigation, text extract or supplied Grok prompt as a successful walkthrough. Keep the reference and dependent readiness/design gates unfinished while access is blocked and continue genuinely independent ready work. Do not repeat the same failed access attempt indefinitely or bypass browser policies. An explicit owner-approved waiver is a scope amendment, not evidence of inspection.
 
-## Fixed implementation decisions
+The independently researched provider register contains candidates, not confirmed Power Atlas inputs. Keep UI-listed source, asset citation, payload lineage and upstream record match as separate evidence. Publicly visible data is not automatically approved for redistribution.
 
-- Single repository, single React + TypeScript + Vite web application; pnpm; current compatible stable dependencies pinned in a lockfile.
-- MapLibre GL JS owns rendering. Use its built-in sources/layers, clustering, feature selection and camera APIs. Do not introduce a second renderer without a measured need and an architecture decision.
-- Node/TypeScript ingestion scripts create versioned, attributed, reproducible, static artifacts. The default app uses local/same-origin data without API keys.
-- Start with bounded GeoJSON and compact catalog/detail shards. Upgrade only the layer that exceeds measured budgets; PMTiles is a later scale path, not a prerequisite.
-- Natural Earth-derived, locally served overview geography is the default keyless map background. This is intentionally not a street map. Additional geographic detail comes from the licensed regional packs.
-- Vitest + React Testing Library for logic/UI tests and Playwright for browser verification. GitHub Actions validates and builds; deployment targets a `/valkyrie/` static base path compatible with GitHub Pages.
-- No backend, auth, subscriptions, runtime AI, live financial quotes, private datasets, sensitive facility information, paid map services, or ongoing operational dependency is needed.
+## Required product
 
-## Execute the roadmap, not just the first milestone
+Build the actual atlas as the first screen, not a marketing landing page. Use original Valkyrie branding, native interactive controls, readable typography and a coherent dark design system. Required experiences include Map and Globe modes for terrestrial infrastructure and a separate lazy-loaded Orbit mode; six searchable domains; zoom-dependent detail; source-aware inspectors; domain-compatible comparisons; real project/event timelines; saved/shareable views; six total guided stories; and clear coverage/freshness/methodology surfaces.
 
-There are 12 ordered epics and 96 explicit v1 task cards. Each card has dependencies, implementation targets, behavior, and proof requirements. Work in dependency order; parallelize only genuinely independent work. Keep contracts and shared state integration coordinated. Never mark an epic done merely because all code files were created.
+The domains are power, grid, compute/AI, projects/queues, connectivity/regulatory context and satellites. Global datasets provide overview where their coverage supports it. The baseline NoVA/DFW packs expand to documented representative European, Chinese and Indian deep dives; they must not be called complete national networks. Preserve native-script names and aliases without inventing translation identities.
 
-At each completed slice: run relevant checks, inspect any changed UI, commit, update canonical task statuses and the execution log, and continue. If an external provider fails, use the documented fallback and record the exact limitation. Never generate fake production data to satisfy record targets. If a required real-data or reference gate remains blocked, keep the dependent gate incomplete and finish independent work.
+The large-catalog target is 200,000 distinct source-backed entities, with separate counts by kind/source/region and explicit hierarchy. It is not an already achieved number. Never count aliases, repeated observations, edges or tiled geometry fragments as more assets, and never fill a shortfall with synthetic production records. A 500,000-record synthetic stress fixture may test engineering limits but cannot substantiate public coverage claims.
 
-## Quality priorities
+## Fixed architectural direction
 
-First, a working end-to-end vertical slice with real data after its prerequisites are satisfied. Second, data integrity and clear provenance. Third, a cohesive, original interface. Fourth, performance, accessibility and resilience. Fifth, an honest portfolio presentation. Do not spend the whole run creating infrastructure, documentation churn, ornamental animations, or optional features.
+Use one React + TypeScript + Vite application, pnpm, pinned compatible stable dependencies and a single lockfile. MapLibre GL JS owns ground map and globe rendering. A separate lazy Three.js orbital scene is permitted for the genuine orbital requirement, not as a second competing ground map. Verify projection/worker compatibility in production and dispose or suspend inactive renderers.
 
-Pay special attention to coordinate order, duplicate entities, geometry parts versus facility counts, unknown numeric values, MW versus MWh, source dates versus download dates, proposed versus operating status, physical connections versus contracts, and evidence quality versus a decorative confidence score. Nearby infrastructure must never be presented as verified supply.
+Use Node/TypeScript ingestion to produce validated, versioned, attributed, immutable static releases. The browser loads same-origin artifacts, not upstream provider APIs on every visit or pan. Keep compact search catalogs separate from geometry and lazy detailed records. Introduce tiles/PMTiles where measured layer scale warrants them and verify actual host range support; use tested bounded shard fallback rather than automatically adding paid storage or a database.
 
-The visible app should feel finished: no blank map, dead controls, unexplained loading state, tiny labels, inaccessible dialogs, unbounded lists, accidental mobile overflow, or generic dashboard filler. Inspect 1440×900, 1280×800, 768×1024 and 390×844 layouts, keyboard-only flow, reduced-motion flow and WebGL-unavailable flow. Test the production build at the deployed subpath, including workers and data URLs; development-mode success is insufficient.
+Use runtime schemas, typed claim/evidence/relationship contracts and reviewed identity crosswalks. Maintain source dates separately from retrieval dates. Keep plant/unit/campus/phase distinctions. Preserve conflicts and nulls. Separate MW/MWh/kV and capacity semantics. Requested generation, requested load, public aggregates, operational assets and contractual relationships are different concepts.
 
-## Mandatory completion evidence
+Orbit uses an explicit UTC clock and OMM-compatible JSON with large catalog IDs. Validate SGP4 propagation against independent reference vectors, then verify frame conversion and renderer-axis mapping. A calculated position from dated elements is not live telemetry. Show epoch and age; implement configured stale-element policies with clear limitations.
 
-Run the command contract in `docs/ARCHITECTURE.md` after it exists: lint, typecheck, unit/UI tests, data validation, plan validation, production build and browser tests. Record actual results with tool/runtime versions and reproducible commands. Resolve real app console errors, orphaned event listeners, corrupted data artifacts and inaccessible controls. Do not fake results or remove failing assertions.
+Vitest/React Testing Library test logic and UI; Playwright verifies real browser journeys. GitHub Actions validates and builds using least privilege. Target `/valkyrie/` static hosting through existing owner permissions. No backend, auth, billing, runtime LLM, live financial data, secret credential requirement or paid provider is required. Do not copy Power Atlas's branding, text, bundles, dataset or screenshots into the product.
 
-Follow `docs/VERIFICATION.md` for functional, data, accessibility, performance, security and degraded-mode gates. Follow `docs/DEPLOYMENT.md` for a least-privilege static deployment. Publishing is allowed only through the owner's existing repository/hosting permissions; no purchases or new accounts. If Pages configuration is unavailable, produce the verified build and deployment workflow and explicitly report the exact owner-only blocker.
+## Execution and quality loop
 
-Create the portfolio deliverables in `docs/PORTFOLIO.md`: factual README, genuine screenshots, three working story links, source methodology, architecture case study, an actual reproducible demo script, and a release report. A video may be recorded when the available tools support it; otherwise ship screenshots and the script and say video was not recorded. Do not invent uptime, accuracy, scale, traffic, benchmark results, or business outcomes.
+Follow explicit task dependencies, not merely epic number. Keep shared schemas, state, manifest and map adapters under one integration owner. At every coherent slice: implement; run task-specific and regression checks; inspect changed UI in the actual production preview; record evidence; commit; update canonical task cards and execution status; synchronize issue checkboxes when connector access permits; then continue to the next ready task.
 
-## Final report to Jordan
+Prioritize a real end-to-end vertical slice, factual/source integrity, complete interactions, original visual quality, then measured scale and a truthful portfolio presentation. Do not spend the run on documentation churn, optional frameworks, ornamental animations or an empty impressive shell.
 
-Report the repository branch/commit, live URL only if verified, completed versus blocked tasks, actual test and browser results, actual dataset counts and coverage, data freshness/limitations, included portfolio artifacts, and any remaining owner-only steps. Provide the exact next command/task if unfinished. Distinguish reference-audit completion, original-design decisions and explicitly unresolved internals. Do not imply that the original Power Atlas's internal implementation was recovered.
+Every UI feature needs actual before/action/after proof. Check 1440×900, 1280×800, 768×1024 and 390×844; keyboard, reduced motion, no-WebGL results, denied clipboard/storage, failed shards/workers, context loss, stale data and offline-after-load. Test production chunks, workers, data and fresh share links under the deployed subpath. A successful build is not a successful user journey or visual review.
 
-Begin at the first ready task, respect the reference/readiness gate, and continue through the required v1 release gates when their prerequisites are satisfied.
+Every data adapter needs tiny real input feasibility, exact source version/hash, rights decision, mappings, negative tests and inspected source-to-UI examples. WRI is historical; GEM may have row-level rights exceptions; generation queues are not data-center load queues; aggregated confidential load reports cannot become guessed facility points; cable image permissions are not route-data permissions; CelesTrak JSON must support larger catalog identifiers. Read the research memo rather than guessing.
 
----
+## Verification, publication and bounded iteration
+
+Run `node scripts/check-plan.mjs --self-test` and `node scripts/check-expanded-plan.mjs --self-test`. These validate structure only. Once application commands exist, run lint, typecheck, unit/UI tests, data validation, independent orbit tests, production build, browser tests and measured performance checks. Record versions, commit/data release, device/browser/network profile and actual results. Never suppress failures by deleting assertions, silently increasing budgets or inventing benchmarks.
+
+Follow baseline VERIFICATION/DEPLOYMENT/PORTFOLIO plus the expanded contracts. Publishing is allowed through existing authorized repository/hosting permissions only. No purchases or new accounts. If remote configuration requires an unavailable owner-only action, preserve the verified build and exact blocker; do not announce the anticipated URL as live.
+
+Complete three useful, documented research→implement→test→review→commit improvement cycles using an evidence-driven gap queue. Publish each valid cycle only when authorized and verified. Stop at the final handoff and leave a ranked next queue; do not promise indefinite background execution. A context boundary requires a recoverable checkpoint, not false completion.
+
+## Final handoff
+
+Report baseline and expanded completion separately; actual reference-audit status; real branch/commit; validated dataset counts, coverage, dates and rights limitations; actual unit/browser/visual/numerical/performance results; public URL only if tested; genuine screenshots/case study/demo script; and exact remaining blockers. A video is optional and must not be claimed recorded if only a script exists. Do not invent traffic, uptime, accuracy, business outcomes or autonomous coding duration.
+
+Begin at the first ready unfinished task. Build and verify the software when its prerequisites are satisfied; do not replace execution with another speculative roadmap.
 
 ## Compact launch instruction
 
-> Implement Valkyrie v1 in this repository. Read AGENTS.md, GOAL.md and docs/qa/POWER_ATLAS_REINSPECTION.md first, recover docs/execution/STATUS.md, and execute the 96 required tasks in dependency order. The reference walkthrough is unfinished: complete VLK-003 with real browser evidence and scope reconciliation, or record the blocker without passing it. Follow the fixed architecture, data-integrity rules, verification gates and portfolio checklist. Build and verify the actual application once prerequisites are satisfied. Record progress and blockers honestly.
+> Implement Valkyrie's full portfolio target. Read AGENTS.md, GOAL.md, docs/ROADMAP.md and docs/expanded/README.md; recover actual repository state. Execute the 96 VLK tasks and 48 EXP tasks in dependency order. Complete the real reference/source-panel audit without inventing observations, then build, test, refine, document and publish through available authorized hosting. Keep source evidence, task status, actual test results and blockers synchronized. Do not stop at the smaller baseline release or claim indefinite background work.
