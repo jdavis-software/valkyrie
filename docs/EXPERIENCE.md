@@ -1,6 +1,6 @@
 # Experience and interaction specification
 
-This is an original written design baseline. No approved screenshot or visual implementation exists yet. VLK-005 establishes reference observations and VLK-029 records Valkyrie's own visual specification. Do not claim image-level fidelity to a concept that was never created or approved.
+This is an original written design baseline. No approved screenshot or visual implementation exists yet. VLK-003 records reference observations; VLK-005 establishes Valkyrie's original visual contract. Do not claim image-level fidelity to a concept that was never created or approved.
 
 ## 1. Art direction
 

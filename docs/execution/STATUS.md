@@ -1,25 +1,30 @@
 # Execution status
 
-Baseline date: 2026-09-06, America/Los_Angeles.
+Planning baseline: 2026-09-06, America/Los_Angeles. GitHub timestamps may show 2026-09-07 UTC for the same local evening.
 
 ## Current state
 
-- Repository: `jdavis-software/valkyrie`, public, initialized for this project.
-- Deliverable in this phase: implementation planning, task definitions and agent handoff.
-- Application implementation: **not started**.
-- Required v1 tasks: **96 total; 0 done; all todo**.
-- Production datasets imported: **none**.
-- Runtime/browser/application test results: **none yet**.
-- Public deployment: **not created or verified**.
-- Portfolio screenshots/video: **not created**.
+| Area | Actual status |
+|---|---|
+| Repository | `jdavis-software/valkyrie`, public; planning committed on `main` |
+| Planning pack | Product, architecture, experience, data, verification, deployment and portfolio specifications present |
+| Required task cards | 96 total across 12 epics; 0 implemented/done; all `todo` |
+| GitHub issues | 12 open epic issues, each containing eight unchecked task items |
+| Agent handoff | `AGENTS.md` and `GOAL.md` present |
+| Planning validation | Zero-dependency checker and GitHub Actions workflow present; first actual CI run passed |
+| Application implementation | Not started |
+| Production datasets | None imported |
+| Application/runtime/browser benchmarks | Not run; no app exists yet |
+| Public application deployment | Not created or verified |
+| Portfolio screenshots/video | Not created |
 
-The roadmap and checklists define future work. They are not claims of a working application, successful data acquisition, license clearance of individual artifacts or completed QA.
+See [planning-validation evidence](../qa/plan-validation.md) and the [issue index](ISSUES.md). A green planning check proves planning structure, not implementation, source-acquisition success or runtime quality.
 
-## Next execution action
+## Exact next action
 
-Read `AGENTS.md` and `GOAL.md`, then start **VLK-001** in [E00](../roadmap/E00-readiness.md). Recover actual Git state before implementing. The source-of-truth task statuses are in the epic Markdown files; keep this summary and GitHub epic checklists synchronized after milestones.
+Read `AGENTS.md` and `GOAL.md`, inspect actual Git state, and begin **VLK-001** in [E00](../roadmap/E00-readiness.md). The agent may verify/reuse the existing checker in VLK-002 instead of unnecessarily rewriting it. Keep task statuses and GitHub checklists synchronized only after corresponding implementation/verification evidence exists.
 
-## Progress update format
+## Recovery update format
 
 ```text
 Date / branch / commit:

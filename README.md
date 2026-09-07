@@ -2,47 +2,69 @@
 
 **Explore the infrastructure behind energy, compute, and connectivity.**
 
-Valkyrie is an independent, map-first portfolio project by Jordan Davis. The intended experience combines a global power-generation overview with deeper regional infrastructure exploration, searchable facilities, evidence-backed details, and shareable guided stories.
+Valkyrie is an independent, map-first portfolio project by Jordan Davis. The planned experience combines a global power-generation overview with deeper regional infrastructure exploration, searchable facilities, evidence-backed details and shareable guided stories.
 
-> **Status: planning, not a finished application.** This repository is being initialized with an implementation specification and task backlog. No running application, production dataset, benchmark result, or deployment is claimed yet.
+> **Status: implementation plan ready; application not built yet.** This repository contains a detailed specification, 96 dependency-ordered task cards, 12 GitHub epic issues, an ASTRA goal handoff and a working plan-validation workflow. It does not yet contain a running application, imported production data, runtime benchmarks or a deployed demo.
 
 ## Start here
 
-The implementation plan is organized for a long-running coding-agent goal. Read these documents in order once they are present:
+| Entry point | Purpose |
+|---|---|
+| [GOAL.md](GOAL.md) | Complete implementation prompt for the coding agent |
+| [AGENTS.md](AGENTS.md) | Operating rules, quality bar, progress recovery and boundaries |
+| [Roadmap](docs/ROADMAP.md) | 12 epics and 96 tasks with dependencies and acceptance criteria |
+| [GitHub epic index](docs/execution/ISSUES.md) | Issues #1–#12, each with eight implementation checklist items |
+| [Execution status](docs/execution/STATUS.md) | Current state and exact next task |
+| [Plan-validation evidence](docs/qa/plan-validation.md) | Actual CI evidence; distinct from future application QA |
 
-1. [Agent operating rules](AGENTS.md) and [ASTRA goal handoff](GOAL.md).
-2. [Product and scope](docs/PRODUCT.md), [architecture](docs/ARCHITECTURE.md), and [experience specification](docs/EXPERIENCE.md).
-3. [Data sources and licensing gates](docs/DATA_SOURCES.md), [data contracts](docs/DATA_CONTRACTS.md), and [reference evidence](docs/REFERENCES.md).
-4. [Dependency-ordered roadmap](docs/ROADMAP.md), [verification requirements](docs/VERIFICATION.md), and [deployment runbook](docs/DEPLOYMENT.md).
-5. [Execution status](docs/execution/STATUS.md) and [portfolio release checklist](docs/PORTFOLIO.md).
+### Launch instruction
 
-## Intended v1
+Open this repository in the coding environment and use its goal workflow with:
 
-- A distinctive dark atlas interface, with a world overview and two regional deep dives.
-- Real, attributed, explicitly dated public data. Historical inventory is never described as live telemetry.
-- Global power-plant exploration; regional grid and data-center layers; a small, clearly scoped project/connectivity collection.
-- Search, filters, detail inspection, source evidence, comparable metrics, saved views, and guided stories.
-- Keyboard and mobile support, an accessible non-map results view, and meaningful offline/error fallbacks.
-- A reproducible static deployment, automated checks, and an honest engineering case study.
+```text
+Implement Valkyrie v1 end to end. Read AGENTS.md and GOAL.md first,
+recover docs/execution/STATUS.md, and execute all 96 required tasks in
+docs/ROADMAP.md in dependency order. Build and verify the actual app;
+do not stop at another plan or a mock dashboard. Follow the data,
+visual, testing, deployment and portfolio release gates. Record
+progress and blockers honestly. Start with VLK-001 if no implementation
+has begun.
+```
+
+## Planned v1
+
+An original dark atlas interface; real historical global power-plant data; Northern Virginia and Dallas–Fort Worth grid/compute deep dives; a small source-backed project/connectivity collection; keyboard search, filters, results and a source-aware inspector; compatible asset comparison; three guided stories; shareable URLs and local saved views; responsive and no-WebGL fallbacks; reproducible static delivery; and an honest portfolio case study.
+
+Global inventory, regional extracts and editorial samples have visibly different coverage. Historical data is never called live. Nearby infrastructure is never described as verified power supply. Record counts come from validated assets, not geometry fragments or fictional demonstration data.
+
+## Specification shelf
+
+[Product](docs/PRODUCT.md) · [Architecture](docs/ARCHITECTURE.md) · [Experience](docs/EXPERIENCE.md) · [Data sources](docs/DATA_SOURCES.md) · [Data contracts](docs/DATA_CONTRACTS.md) · [Reference evidence](docs/REFERENCES.md) · [Decisions](docs/DECISIONS.md) · [Verification](docs/VERIFICATION.md) · [Deployment](docs/DEPLOYMENT.md) · [Portfolio](docs/PORTFOLIO.md) · [Future scope](docs/FUTURE.md).
 
 ## Architectural direction
 
-React, TypeScript, Vite, and MapLibre GL JS; a build-time TypeScript ingestion pipeline; versioned static data artifacts; Vitest and Playwright; GitHub Actions and a GitHub Pages-compatible deployment. Exact compatible package versions will be pinned during implementation.
+React, TypeScript, Vite and MapLibre GL JS; a build-time TypeScript ingestion pipeline; versioned static data artifacts; worker-backed search; Vitest and Playwright; GitHub Actions and a GitHub Pages-compatible deployment. Exact compatible package versions are pinned during implementation, not guessed in the plan.
 
-No accounts, paid APIs, application backend, database service, Kubernetes, or runtime AI dependency is required for v1. These are deliberate scope choices for a maintainable portfolio project, not claims about the reference application's stack.
+No accounts, paid APIs, application backend, database service, Kubernetes or runtime AI dependency is required for v1. This is a deliberate portfolio design choice, not a claim about the reference application's stack.
 
-## Inspiration
+## Validate the plan now
+
+With Node 18 or later, no application dependency installation is needed:
+
+```bash
+node scripts/check-plan.mjs --self-test
+```
+
+The checker validates the 96-task graph, status vocabulary, required task sections and relative document/file links. It tests its own failure detection and runs through [GitHub Actions](https://github.com/jdavis-software/valkyrie/actions/workflows/plan-check.yml). It does **not** certify the future application's correctness, external URLs or data rights.
+
+Application install/dev/build commands will be added by the foundation tasks. There is no app package lockfile yet.
+
+## Inspiration and data reuse
 
 - [Power Atlas reference experience](https://power-atlas.sarvesh-kapre.chatgpt.site/)
 - [Original X link supplied by Jordan](https://x.com/_cyberhusky/status/2076018638658896085)
-- [OpenInfraMap](https://openinframap.org/) and its [public source](https://github.com/openinframap/openinframap)
+- [OpenInfraMap public source](https://github.com/openinframap/openinframap)
 
-Valkyrie will be original code and branding inspired by the interaction pattern, not a copy of Power Atlas's code, assets, dataset, or unsupported claims. The reference application's internal stack and original repository have not been verified. Its displayed counts are not Valkyrie's targets or data.
+Valkyrie will use original code, branding and copy inspired by the interaction pattern—not Power Atlas's bundles, assets or dataset. The reference's internal stack and original repository have not been verified.
 
-## Development
-
-Application setup commands will be added when the foundation tasks are implemented. This planning-only repository does not yet have a runnable app or package lockfile.
-
-## Data and reuse
-
-Each upstream dataset must retain its own attribution, license, retrieval date, and limitations. Publicly viewable data is not automatically approved for redistribution. Original-code licensing and third-party data licensing must remain separate; see the planned source registry before importing data.
+Each upstream dataset retains its own attribution, license, retrieval/source dates and limitations. Public visibility does not automatically permit redistribution. Original-code licensing and third-party data licensing remain separate; review the source registry before importing or publishing data.

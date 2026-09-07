@@ -65,27 +65,30 @@ src/
   data/                # Manifest and shard loaders; no provider credentials
   workers/             # Pure message-based query work
   styles/              # Tokens, reset, global type, reduced-motion rules
-  test/                # Setup and clearly marked fixtures
+  test/                # Component/unit setup and clearly marked small fixtures
 scripts/
   data/                # Ingest, validate, build, diff, publication tools
-  check-plan.mjs       # Planning consistency validation
-  check-budgets.mjs     # Artifact/bundle constraints
+  check-plan.mjs       # Planning consistency validation; already provided
+  check-budgets.mjs    # Artifact/bundle constraints
 public/
   data/releases/<id>/  # Approved map, catalog, details, sources and story artifacts
   geography/           # Approved locally served overview geography
   data/current.json    # Immutable release pointer, updated only after validation
   credits/             # Upstream notices required for distributed artifacts
-  screenshots/         # Actual release images only when created
 config/
   sources.json         # Source registry, terms, pinned inputs, coverage, refresh policy
   regions.json         # Explicit pack extents and labels
   features.json        # Release-gated optional capabilities
   curation/            # Evidence-backed small records and reviewed identity aliases
   sources.lock.json    # Download URLs, source versions and SHA-256 values
-.tests-or-tests/       # Use tests/ in implementation; do not create both layouts
+tests/
+  integration/         # Ingestion/publication and cross-module tests
+  e2e/                 # Production-preview browser scenarios
+  performance/         # Labeled profiles and synthetic stress fixtures, never production data
+docs/media/            # Actual portfolio screenshots when created
 ```
 
-Use `tests/` for integration/e2e/performance fixtures. Avoid empty package/service directories for hypothetical future architecture.
+Use `src/test/` for unit/component setup and `tests/` for cross-module/browser/performance suites. Avoid empty package/service directories for hypothetical architecture or two competing e2e layouts.
 
 ## 4. Data load sequence
 
@@ -107,6 +110,8 @@ World point data may remain as bounded GeoJSON when benchmarks pass. Region line
 
 Current MapLibre documentation includes an ESM worker-specific Vite integration. Verify the chosen installed major's instructions and test workers from the production subpath, not only dev mode. Reference: https://maplibre.org/maplibre-gl-js/docs/ .
 
+The local overview does not require street-map labels or externally served glyphs. If native map text labels are added, verify the selected MapLibre version's font/glyph behavior, use only legitimately licensed resources, and keep the runtime keyless/same-origin. Do not copy installed system/container font files into the project or depend on an unreviewed public glyph endpoint.
+
 ## 6. State ownership
 
 - `catalogState`: manifest version, loaded partitions, data health and immutable records.
@@ -120,7 +125,7 @@ All filtering/metrics use the same pure predicate. Empty filter set means no ass
 
 ## 7. Command contract
 
-After foundation, the repository must expose these commands. Until then they are requirements, not runnable claims.
+After foundation/pipeline tasks, expose these commands. Only the zero-dependency planning checker exists in the planning baseline; application commands below are future requirements.
 
 | Command | Behavior |
 |---|---|
@@ -142,6 +147,8 @@ After foundation, the repository must expose these commands. Until then they are
 | `pnpm check` | lint + typecheck + test + data:validate + check:plan + build |
 
 A source requiring a key must use a documented environment secret in the ingestion process, never a `VITE_*` secret. Default v1 has no required secret. Unsupported optional input must fail with a useful message, not hang or fabricate a success artifact.
+
+Ordinary clean-clone app build/test consumes committed published data. Rebuilding the dataset itself requires previously acquired raw cache or an explicit approved ingest; do not confuse these two reproducibility claims.
 
 ## 8. ADRs and change rules
 

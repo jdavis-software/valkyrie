@@ -45,7 +45,7 @@ Baseline profile: production Chromium, 1440×900, cold HTTP cache, an explicitly
 | Initial application JavaScript, excluding lazy map chunk | ≤250 KiB gzip | Deterministic build check |
 | Map/worker JavaScript required for first map | ≤800 KiB gzip combined | Deterministic build check, report files individually |
 | First meaningful map's geography + initial asset payloads | ≤3 MiB gzip | Artifact/build report |
-| Entire core published dataset | ≤25 MiB uncompressed; no single file >10 MiB | Deterministic artifact gate; partition instead of silently sampling |
+| Entire core published dataset | ≤75 MiB uncompressed; no single file >10 MiB | Deterministic artifact gate; lazy partitioning for individual files |
 | Initial usable shell | ≤1.5 s median in profile | Measured report; environment-aware regression gate |
 | First meaningful map | ≤4 s median in profile | Measured report with current data release |
 | Search response after indexed data is ready | ≤100 ms p95 over at least 100 representative queries | Worker/query benchmark |
@@ -53,6 +53,8 @@ Baseline profile: production Chromium, 1440×900, cold HTTP cache, an explicitly
 | Region switch with required data cached | ≤300 ms median to stable visible state | Browser measurement |
 | Repeated navigation | 50 selection/region/story cycles without accumulating live maps/workers/listeners | Correctness/resource lifecycle gate |
 | Share URL | ≤2,000 characters for supported baseline views | Unit/property test |
+
+The total-data budget includes separate geometry, compact catalog, evidence and detail artifacts; it is not an initial-download allowance. Partitioning reduces per-request payloads, not total bytes. If total size fails, remove redundant serialized fields, improve representation or propose an evidence-backed budget amendment; do not silently drop valid source records or pretend splitting files reduces aggregate size.
 
 Gzip sizes are comparative build measurements; verify what the actual host transmits rather than assuming the host serves the measured encoding. Measure initial network requests, not just total build folder size. If budgets fail, profile and optimize; document any justified revised budget and its rationale rather than hiding the failure. Do not claim 60 FPS, low memory or hundreds of thousands of real assets from a synthetic test.
 
