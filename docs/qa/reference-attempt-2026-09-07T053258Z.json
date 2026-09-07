@@ -1,0 +1,14 @@
+{
+  "attemptedAt": "2026-09-07T05:32:58.646129+00:00",
+  "target": "https://power-atlas.sarvesh-kapre.chatgpt.site/",
+  "environment": "isolated container Chromium; not the user in-app tab",
+  "viewport": {"width": 1440, "height": 900},
+  "responses": [],
+  "browserVersion": "144.0.7559.96",
+  "navigationError": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at https://power-atlas.sarvesh-kapre.chatgpt.site/",
+  "body": "power-atlas.sarvesh-kapre.chatgpt.site is blocked\n\nYour organization does not allow you to view this site",
+  "referenceAuditComplete": false,
+  "sourcePanelInspected": false,
+  "controlsExercised": 0,
+  "notes": "Sanitized summary of an actual navigation failure. Error-page scripts are not application evidence. No cookies, headers or tokens retained."
+}

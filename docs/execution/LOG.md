@@ -22,9 +22,19 @@ GitHub epic issues #1 through #12 were created and confirmed. Every task remains
 
 The final consistency pass corrected a task cross-reference, removed an ambiguous proposed directory name, and refined the total-data budget to accommodate separate geometry/catalog/detail artifacts without encouraging silent dataset sampling. Budgets remain proposed acceptance limits, not measured application results.
 
+## 2026-09-07 UTC — Full-target planning expansion and independent source research
+
+Planning commit: `f40cad9239271dc7c826a6ae1b76ae8436ab261f`, published by fast-forward after checking main. Added 48 EXP tasks, full-target scope, implementation contracts, primary-source research, twelve candidate source records and a 32-scenario actual-reference protocol. Updated root README/GOAL/AGENTS/STATUS to distinguish the baseline first release from the full six-domain target. Original VLK cards and baseline specifications were preserved.
+
+The reference source panel remains unextracted. The actual 05:32:58 UTC isolated Chromium attempt failed with ERR_BLOCKED_BY_ADMINISTRATOR before the app loaded; it is not the owner's in-app tab. No controls, mobile views or application data requests were observed. The source register marks every researched provider's relationship to Power Atlas unverified. Source access, import and redistribution gates remain unfinished.
+
+The new checker passed local in-memory self-tests and syntax validation under Node v22.16.0. Actual [GitHub Actions run 34088575131](https://github.com/jdavis-software/valkyrie/actions/runs/34088575131) passed both validators under Node v22.23.2. Decoded logs confirm 96 baseline tasks, 48 expanded tasks, an acyclic combined graph, resolved links in 47 Markdown files at that commit, and consistent declared states for twelve source candidates. Combined statuses were 143 todo, one blocked, zero done. The pinned checkout emitted a deprecation warning; no insecure runtime opt-in was added.
+
+GitHub issues #13–#20 were created and confirmed with six unchecked tasks each. [Expanded issue index](../expanded/ISSUES.md) and [validation report](../qa/expanded-plan-validation.md) retain links and exact evidence. No application implementation, production data, orbit math execution, runtime benchmark, actual app screenshot or deployment occurred during this planning pass. Start at VLK-001 and complete the real reference/source-disclosure gate before claiming reference-informed readiness.
+
 ## Entry template
 
-### YYYY-MM-DD — VLK-XXX — brief outcome
+### YYYY-MM-DD — task ID — brief outcome
 
 - Branch/commit and relevant files:
 - Behavior implemented or verified:
